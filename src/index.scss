@@ -1,0 +1,20 @@
+@import "./Theme.scss";
+@import "carbon-components/scss/globals/scss/styles.scss";
+@import "./components/SimpleCard/_SimpleCard.scss";
+@import "./components/TextEditor/_TextEditor.scss";
+@import "./components/AddTextEditor/AddTextEditor";
+@import "./components/Header/_Header.scss";
+@import "./components/SelectConnection/_SelectConnection.scss";
+@import "./components/MediaGadget/MediaGadget";
+@import "./pages/SendTextMessage";
+@import "./pages/Dashboard";
+
+$feature-flags: (
+  ui-shell: true,
+  grid-columns-16: true,
+);
+
+.content {
+  background-color: $ui-01;
+  min-height: 100vh;
+}

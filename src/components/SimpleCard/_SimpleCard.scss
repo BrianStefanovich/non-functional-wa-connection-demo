@@ -1,0 +1,9 @@
+.SimpleCard {
+  padding: $layout-02;
+  margin-bottom: $layout-05;
+  background-color: white;
+
+  .title {
+    margin-bottom: $spacing-09;
+  }
+}

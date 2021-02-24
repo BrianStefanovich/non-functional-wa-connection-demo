@@ -1,0 +1,32 @@
+.TextEditor {
+  width: 340px;
+  margin-top: $layout-04;
+  position: relative;
+  .ToolBar {
+    padding: $spacing-05;
+    margin-bottom: 4px;
+    background-color: $ui-02;
+    display: flex;
+    align-items: center;
+  }
+
+  .Main {
+    position: relative;
+    padding: $spacing-05;
+    background-color: white;
+    height: 16rem;
+    overflow-y: scroll;
+
+    .DeleteButton {
+      position: absolute;
+      bottom: $layout-01;
+    }
+  }
+
+  .EmojiPicker {
+    position: absolute;
+    z-index: 1000;
+    left: 320px;
+    top: -32px;
+  }
+}

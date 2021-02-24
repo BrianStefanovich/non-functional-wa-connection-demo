@@ -1,0 +1,28 @@
+.MediaGadget {
+  width: 340px;
+  position: relative;
+  background-color: $ui-03;
+  padding: $spacing-05;
+  margin-top: $layout-04;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .image {
+    width: 100%;
+  }
+
+  .DeleteButton {
+    position: absolute;
+    bottom: $spacing-05;
+    left: $spacing-05;
+  }
+}
+
+.Warn {
+  width: 340px;
+  margin-bottom: $layout-04;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

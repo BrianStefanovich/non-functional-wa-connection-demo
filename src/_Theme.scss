@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400&family=Montserrat&family=Montserrat+Alternates:ital,wght@0,400;0,600;1,400;1,600&display=swap");
+
+$label-01: (
+  font-family: "Montserrat",
+  font-size: 0.75rem,
+  font-weight: 400,
+  line-height: 1rem,
+  letter-spacing: 0.32px,
+);
+
+$caption-01: (
+  font-family: "Montserrat Alternates",
+  font-size: 0.75rem,
+  font-weight: 400,
+  line-height: 1rem,
+  letter-spacing: 0.32px,
+);
+
+$helper-text-01: (
+  font-family: "Montserrat Alternates",
+  font-size: 0.75rem,
+  font-style: italic,
+  font-weight: 400,
+  line-height: 1rem,
+  letter-spacing: 0.32px,
+);
+
+$body-short-01: (
+  font-family: "Montserrat",
+  font-size: 0.857rem,
+  font-weight: 400,
+  line-height: 1.125rem,
+  letter-spacing: 0.16px,
+);
+
+$body-long-01: (
+  font-family: "Montserrat",
+  font-size: 0.857rem,
+  font-weight: 400,
+  line-height: 1.125rem,
+  letter-spacing: 0.16px,
+);
+
+$body-long-02: (
+  font-family: "Montserrat",
+  font-size: 0.857rem,
+  font-weight: 400,
+  line-height: 1.5rem,
+  letter-spacing: 0px,
+);
+
+$body-short-01: (
+  font-family: "Montserrat",
+  font-size: 0.857rem,
+  font-weight: 400,
+  line-height: 1.125rem,
+  letter-spacing: 0.16px,
+);
+
+$productive-heading-01: (
+  font-family: "Montserrat Alternates",
+  font-size: 0.857rem,
+  font-weight: 600,
+  line-height: 1.125rem,
+  letter-spacing: 0.16px,
+);
+
+$productive-heading-02: (
+  font-family: "Montserrat Alternates",
+  font-size: 1rem,
+  font-weight: 600,
+  line-height: 1.375rem,
+  letter-spacing: 0px,
+);
+
+$productive-heading-03: (
+  font-family: "Montserrat Alternates",
+  font-size: 1.25rem,
+  font-weight: 400,
+  line-height: 1.625rem,
+  letter-spacing: 0px,
+);
+
+$productive-heading-04: (
+  font-family: "Montserrat Alternates",
+  font-size: 1.75rem,
+  font-weight: 400,
+  line-height: 3.25rem,
+  letter-spacing: 0px,
+);
+
+$productive-heading-05: (
+  font-family: "Alegreya Sans",
+  font-size: 2rem,
+  font-weight: 400,
+  line-height: 2.25rem,
+  letter-spacing: 0px,
+);
+
+$productive-heading-06: (
+  font-family: "Alegreya Sans",
+  font-size: 2.625rem,
+  font-weight: 300,
+  line-height: 3.125rem,
+  letter-spacing: 0px,
+);
+
+$productive-heading-07: (
+  font-family: "Alegreya Sans",
+  font-size: 3.375rem,
+  font-weight: 300,
+  line-height: 4rem,
+  letter-spacing: 0px,
+);
+
+
+$interactive-01: #198038;
+$interactive-03: #198038;
+$interactive-04: #198038;
+$link-01: #198038;
+$inverse-link: #42be65;
+$support-02: #4589ff;
+$support-04: #0e6027;
+$inverse-support-02: #78a9ff;
+$inverse-support-04: #24a148;
+$focus: #198038;
+$hover-primary: #198038;
+$hover-primary-text: #0e6027;
+$hover-tertiary: #198038;
+$active-primary: #044317;
+$active-tertiary: #044317;
+$highlight: #a7f0ba;
