@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import TextEditor from "./../components/TextEditor/TextEditor";
 import MediaGadget from "./../components/MediaGadget/MediaGadget";
 import AddTextEditor from "./../components/AddTextEditor/AddTextEditor";
@@ -45,7 +45,6 @@ function SendMediaMessage(props) {
 
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
-  const mainRef = useRef(null);
   const [sendStatus, setSendStaus] = useState([]);
   const [dispatchStatus, setDispatchStatus] = useState(false);
   const [sendMessasges, setSendMessages] = useState(false);
@@ -56,10 +55,6 @@ function SendMediaMessage(props) {
     variables: ["Contact list is not selected"],
     length: 1,
   });
-
-  useEffect(() => {
-    calcContactsInterval();
-  }, [contact, selectedCooldown, selectedConnection]);
 
   useEffect(() => {
     console.log(contactsInterval);
@@ -78,7 +73,6 @@ function SendMediaMessage(props) {
       messageAmount > contact.length
         ? 0
         : Math.floor(contact.length % messageAmount);
-    const count = 0;
     let tmpInterval = [];
     let lastSuperior = 0;
 
@@ -96,6 +90,10 @@ function SendMediaMessage(props) {
     setContactsInterval(tmpInterval);
     console.log("tmpInterval: ", tmpInterval);
   };
+
+  useEffect(() => {
+    calcContactsInterval();
+  }, [contact, selectedCooldown, selectedConnection]);
 
   const handleSelectCooldown = (e) => {
     setSelectedCooldown(e.target.value);
@@ -119,17 +117,8 @@ function SendMediaMessage(props) {
     await database.ref(`user/${props.uid}/mediaMessage`).remove();
   };
 
-  const handleText = (e) => {
-    setText(e.target.value);
-  };
-
   const handleSelectConnection = (e) => {
     setSelectedConnection(e.target.value);
-  };
-
-  const createMessageVariant = () => {
-    props.createVariant({ body: text });
-    setText("");
   };
 
   const toggleDispatch = () => {

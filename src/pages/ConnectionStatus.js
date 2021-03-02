@@ -13,15 +13,12 @@ import {
 } from "carbon-components-react";
 
 import { useParams } from "react-router-dom";
-import { useHistory } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { TrashCan16 } from "@carbon/icons-react";
 
 function ConnectionStatus(props) {
   const { id } = useParams();
-  const history = useHistory();
-
   const connection = props.connections.find((elm) => {
     return elm.id === id;
   });

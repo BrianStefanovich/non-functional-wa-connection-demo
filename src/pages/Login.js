@@ -20,9 +20,6 @@ export default function Login(props) {
   const [emailWarn, setEmailWarn] = useState(false);
   const [emailWarnText, setEmailWarnText] = useState("");
 
-  const [passwordWarn, setPasswordWarn] = useState(false);
-  const [passwordWarnText, setPasswordWarnText] = useState("");
-
   const handleMail = (e) => {
     setEmailWarn(false);
     setEmail(e.target.value);
@@ -115,8 +112,6 @@ export default function Login(props) {
             onChange={handlePassword}
             id="password"
             labelText="Password"
-            warn={passwordWarn}
-            warnText={passwordWarnText}
           />
           <Link onClick={handleResetPassword}> Forgot my password </Link>
         </Modal>
@@ -144,5 +139,7 @@ export default function Login(props) {
           <br />
         </Modal>
       );
+    default:
+      return null;
   }
 }

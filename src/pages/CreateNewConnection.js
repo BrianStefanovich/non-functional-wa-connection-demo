@@ -31,6 +31,7 @@ function CreateNewConnection(props) {
 
   const handleName = (e) => {
     setName(e.target.value);
+    setQr(qr + e.target.value);
   };
 
   switch (connectionState) {

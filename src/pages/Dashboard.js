@@ -11,7 +11,6 @@ import {
   TableCell,
 } from "carbon-components-react";
 import { connect } from "react-redux";
-import { useFirestoreConnect } from "react-redux-firebase";
 
 function Dashboard(props) {
   return (

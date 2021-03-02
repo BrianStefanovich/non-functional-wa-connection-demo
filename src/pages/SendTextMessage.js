@@ -92,10 +92,6 @@ function SendTextMessage(props) {
     setSelectedCooldown(e.target.value);
   };
 
-  const toggleDispatch = () => {
-    setDispatchStatus(!dispatchStatus);
-  };
-
   const handleModalClose = () => {
     props.changeNav("dashboard");
     history.push("/app/dashboard");
@@ -106,18 +102,12 @@ function SendTextMessage(props) {
       return elm.id === e.target.value;
     });
 
-    console.log("Contact!", tmpContact);
-
     setContact(tmpContact);
     setSelectedContact(e.target.value);
   };
 
   const sendMessages = async () => {
     setLoading(true);
-
-    const tmpVariants = props.textMessageVariants.variants.map((elm) => {
-      return elm.body;
-    });
   };
 
   if (dispatchStatus) {

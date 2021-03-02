@@ -16,7 +16,6 @@ import { connect } from "react-redux";
 import {
   CreateVariant,
   DeleteVariant,
-  EditVariant,
   DeleteAll,
 } from "./../../store/actions/TextNessageVariantAction";
 

@@ -11,15 +11,12 @@ import {
   Button,
 } from "carbon-components-react";
 
-import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { TrashCan16 } from "@carbon/icons-react";
 
 function ContactStatus(props) {
   const { id } = useParams();
-  const history = useHistory();
-
   const deleteContact = () => {};
 
   const contact = props.contacts.find((elm) => {

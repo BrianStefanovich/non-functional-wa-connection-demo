@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Add32, TrashCan16 } from "@carbon/icons-react";
+import { TrashCan16 } from "@carbon/icons-react";
 import {
   FileUploaderItem,
   FileUploaderDropContainer,
@@ -34,22 +34,6 @@ function MediaGadget(props) {
     isOn: false,
     message: "",
   });
-
-  const createSticker = async () => {
-    await fetch(
-      "http://localhost:5000/connectivitys-2066c/us-central1/api/sticker/",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          uid: props.uid,
-          mediaPath: fileName,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    ).catch((err) => console.log(err));
-  };
 
   const handleFile = async (evt, { addedFiles }) => {
     const file = addedFiles[0];
@@ -226,29 +210,10 @@ function MediaGadget(props) {
     setStatus("upload");
   };
 
-  /*
-    case "sticker":
-      return (
-        <div className="MediaGadget">
-          <img className="image" src={image} />
-          <div className="DeleteButton">
-            <Button
-              iconDescription="Delete this file"
-              hasIconOnly
-              renderIcon={TrashCan16}
-              kind="secondary"
-              size="sm"
-              onClick={deleteImage}
-            />
-          </div>
-        </div>
-      );
-*/
-
   if (status === "image") {
     return (
       <div className="MediaGadget">
-        <img className="image" src={image} />
+        <img alt="" className="image" src={image} />
         <div className="DeleteButton">
           <Button
             iconDescription="Delete this file"
