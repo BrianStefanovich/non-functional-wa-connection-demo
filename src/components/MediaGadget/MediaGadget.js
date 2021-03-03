@@ -11,7 +11,6 @@ import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { DefaultPlayer as Video } from "react-html5video";
 import "react-html5video/dist/styles.css";
-import { useFirebase } from "react-redux-firebase";
 import { connect } from "react-redux";
 import {
   CreateVariant,
@@ -23,7 +22,6 @@ import {
 } from "./../../store/actions/MediaMessageVariantAction";
 
 function MediaGadget(props) {
-  const firebase = useFirebase();
   const [status, setStatus] = useState("upload");
   const [image, setImage] = useState("#");
   const [audio, setAudio] = useState("#");
@@ -62,9 +60,7 @@ function MediaGadget(props) {
       });
     }
 
-    const upload = async () => {
-      await firebase.uploadFile(`user/${props.uid}/media`, file);
-    };
+    const upload = async () => {};
 
     setFileName(file.name);
     setStatus("loading");
@@ -87,18 +83,6 @@ function MediaGadget(props) {
           break;
         }
 
-      /*
-      case "image/png":
-        props.setMediaPath(file.name);
-        await firebase.uploadFile(`user/${props.uid}/media`, file);
-        await createSticker();
-        setImage(URL.createObjectURL(file));
-        props.setMediaType("sticker");
-        props.setAddText(false);
-        props.setSendMessage(true);
-        setStatus("sticker");
-        break;
-*/
       case "image/jpeg":
         if (MBSize > 2.5 || !correctFormat) {
           setStatus("upload");
@@ -175,8 +159,6 @@ function MediaGadget(props) {
   };
 
   const deleteVideo = async () => {
-    const ref = firebase.storage().ref(`user/${props.uid}/media/${fileName}`);
-    await ref.delete();
     props.setSendMessage(false);
     props.setMediaPath("");
     props.deleteAll();
@@ -184,8 +166,6 @@ function MediaGadget(props) {
   };
 
   const deleteAudio = async () => {
-    const ref = firebase.storage().ref(`user/${props.uid}/media/${fileName}`);
-    await ref.delete();
     props.setSendMessage(false);
     props.setMediaPath("");
     props.deleteAll();
@@ -193,8 +173,6 @@ function MediaGadget(props) {
   };
 
   const deleteImage = async () => {
-    const ref = firebase.storage().ref(`user/${props.uid}/media/${fileName}`);
-    await ref.delete();
     props.setSendMessage(false);
     props.setMediaPath("");
     props.deleteAll();
@@ -202,8 +180,6 @@ function MediaGadget(props) {
   };
 
   const deleteDocument = async () => {
-    const ref = firebase.storage().ref(`user/${props.uid}/media/${fileName}`);
-    await ref.delete();
     props.setSendMessage(false);
     props.setMediaPath("");
     props.deleteAll();

@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { Modal, Loading, FileUploader } from "carbon-components-react";
 import { changeNav } from "./../store/actions/SideNavActions";
-
 import { connect } from "react-redux";
-import { useFirebase } from "react-redux-firebase";
 import { useHistory } from "react-router-dom";
 
 function CreateNewContact(props) {
-  const firebase = useFirebase();
   const history = useHistory();
 
   const [connectionState, setConnectionState] = useState("file");
@@ -19,11 +16,6 @@ function CreateNewContact(props) {
     history.push("/app/dashboard");
   };
   const handleFile = async (e) => {
-    const file = e.target.files[0];
-    await firebase
-      .uploadFile(`user/${props.uid}/contacts`, file)
-      .catch((err) => console.log(err));
-
     setFileStatus("complete");
   };
 
