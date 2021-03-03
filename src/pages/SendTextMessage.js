@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import TextEditor from "./../components/TextEditor/TextEditor";
 import AddTextEditor from "./../components/AddTextEditor/AddTextEditor";
 import {
@@ -30,16 +30,11 @@ import { Send16 } from "@carbon/icons-react";
 import SelectConnection from "./../components/SelectConnection/SelectConnection";
 
 function SendTextMessage(props) {
-  useEffect(() => {
-    props.deleteAll();
-  }, []);
-
   const history = useHistory();
 
   const [selectedConnection, setSelectedConnection] = useState("");
   const [selectedContact, setSelectedContact] = useState("");
   const [selectedCooldown, setSelectedCooldown] = useState("10");
-  const [contactsInterval, setContactsInterval] = useState([]);
   const [loading, setLoading] = useState(false);
   const [sendStatus, setSendStaus] = useState([]);
   const [dispatchStatus, setDispatchStatus] = useState(false);
@@ -48,44 +43,10 @@ function SendTextMessage(props) {
     variables: ["Contact list is not selected"],
   });
 
-  const calcContactsInterval = () => {
-    const messageAmount = Math.floor(290 / (2 + parseInt(selectedCooldown)));
-    console.log("Message amount: ", messageAmount);
-    console.log("Contact length: ", contact.length);
-
-    const messageQuant =
-      messageAmount > contact.length
-        ? 1
-        : Math.floor(contact.length / messageAmount);
-    const messageReminder =
-      messageAmount > contact.length
-        ? 0
-        : Math.floor(contact.length % messageAmount);
-    const count = 0;
-    let tmpInterval = [];
-    let lastSuperior = 0;
-
-    for (let i = 0; i < messageQuant; i++) {
-      if (messageAmount > contact.length) {
-        tmpInterval.push([0, contact.length]);
-      } else {
-        tmpInterval.push([i * messageAmount, (i + 1) * messageAmount]);
-      }
-      lastSuperior = (i + 1) * messageAmount;
-    }
-    if (messageReminder !== 0) {
-      tmpInterval.push([lastSuperior, lastSuperior + messageReminder]);
-    }
-    setContactsInterval(tmpInterval);
-    console.log("tmpInterval: ", tmpInterval);
-  };
-
-  useEffect(() => {
-    calcContactsInterval();
-  }, [contact, selectedCooldown, selectedConnection]);
-
   const handleSelectConnection = (e) => {
     setSelectedConnection(e.target.value);
+    setSendStaus(sendStatus);
+    setDispatchStatus(dispatchStatus);
   };
 
   const handleSelectCooldown = (e) => {
@@ -162,6 +123,8 @@ function SendTextMessage(props) {
           handleSelectConnection={handleSelectConnection}
           handleSelectCooldown={handleSelectCooldown}
           cooldown={selectedCooldown}
+          selectedContact={selectedContact}
+          selectedConnection={selectedConnection}
         />
 
         {props.textMessageVariants.variants.map((elm, i) => {
@@ -201,8 +164,6 @@ const stateToProps = (state) => {
     textMessageVariants: state.textMessageVariants,
     contacts: state.firestore.ordered.contacts,
     connections: state.firestore.ordered.connections,
-    uid: state.firebase.auth.uid,
-    token: state.firebase.profile.token.token,
   };
 };
 

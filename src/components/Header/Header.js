@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { AppSwitcher20 } from "@carbon/icons-react";
-import { useHistory } from "react-router-dom";
-import { useFirebase } from "react-redux-firebase";
 
 import {
   Header,
@@ -15,22 +13,10 @@ import {
 } from "carbon-components-react";
 
 function MainHeader() {
-  const history = useHistory();
-  const firebase = useFirebase();
   const [isGlobalBarOpen, setIsGlobalBarOpen] = useState(false);
 
   const toggleGlobalBar = () => {
     setIsGlobalBarOpen(!isGlobalBarOpen);
-  };
-
-  const handleLogOut = () => {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        toggleGlobalBar();
-        history.push("/login");
-      });
   };
 
   return (
@@ -46,9 +32,7 @@ function MainHeader() {
       </HeaderGlobalBar>
       <HeaderPanel expanded={isGlobalBarOpen}>
         <Switcher aria-label="Switcher Container">
-          <SwitcherItem onClick={handleLogOut} aria-label="Log out">
-            Log out
-          </SwitcherItem>
+          <SwitcherItem aria-label="Log out">Log out</SwitcherItem>
         </Switcher>
       </HeaderPanel>
     </Header>

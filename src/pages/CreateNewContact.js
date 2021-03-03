@@ -14,6 +14,7 @@ function CreateNewContact(props) {
   const [fileStatus, setFileStatus] = useState("uploading");
 
   const handleModalClose = () => {
+    setConnectionState(connectionState);
     props.changeNav("dashboard");
     history.push("/app/dashboard");
   };
