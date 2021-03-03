@@ -35,6 +35,7 @@ function MediaGadget(props) {
 
   const handleFile = async (evt, { addedFiles }) => {
     const file = addedFiles[0];
+    console.log(fileName);
     const MBSize = file.size * 0.000001;
     const correctFormat =
       file.type === "application/pdf" ||
